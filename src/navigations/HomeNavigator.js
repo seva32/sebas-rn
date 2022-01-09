@@ -2,6 +2,13 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View, Text} from 'react-native';
 
+import {
+  CONTACT_LIST,
+  CONTACT_CRAETE,
+  CONTACT_DETAILS,
+  SETTINGS,
+} from '../constants/routeNames';
+
 function Contact(params) {
   return (
     <View>
@@ -38,17 +45,11 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeNavigator() {
   return (
-    <HomeStack.Navigator initialRouteName="Contact">
-      <HomeStack.Screen name="Contact" component={Contact}></HomeStack.Screen>
-      <HomeStack.Screen
-        name="Contact Details"
-        component={ContactDetails}></HomeStack.Screen>
-      <HomeStack.Screen
-        name="Contact Create"
-        component={ContactCreate}></HomeStack.Screen>
-      <HomeStack.Screen
-        name="Settings"
-        component={ContactSettings}></HomeStack.Screen>
+    <HomeStack.Navigator initialRouteName={CONTACT_LIST}>
+      <HomeStack.Screen name={CONTACT_LIST} component={Contact} />
+      <HomeStack.Screen name={CONTACT_DETAILS} component={ContactDetails} />
+      <HomeStack.Screen name={CONTACT_CRAETE} component={ContactCreate} />
+      <HomeStack.Screen name={SETTINGS} component={ContactSettings} />
     </HomeStack.Navigator>
   );
 }

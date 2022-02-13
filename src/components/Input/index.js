@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './styles';
 
 const Input = ({onChangeText, value, style, label, icon, iconPosition}) => {
-  const getDirection = () => {
+  const getFlexDirection = () => {
     if (icon && iconPosition) {
       if (iconPosition === 'left') {
         return 'row';
@@ -16,7 +16,7 @@ const Input = ({onChangeText, value, style, label, icon, iconPosition}) => {
   return (
     <View style={styles.container}>
       {label && <Text>{label}</Text>}
-      <View style={[styles.wrapper, {flexDirection: getDirection()}]}>
+      <View style={[styles.wrapper, {flexDirection: getFlexDirection()}]}>
         <View>{icon && icon}</View>
         <TextInput
           style={[styles.input, style]}

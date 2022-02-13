@@ -1,38 +1,31 @@
-import React from 'react';
-import {TextInput, StyleSheet, SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
+import {SafeAreaView, Text} from 'react-native';
 import Container from '../../components/common/container';
+import Input from '../../components/Input';
 
 function Login(params) {
   const [text, onChangeText] = React.useState('Useless Text');
-  const [number, onChangeNumber] = React.useState(null);
+
+  useEffect(() => {
+    console.warn(text);
+
+    return () => {};
+  }, [text]);
 
   return (
     <Container>
       <SafeAreaView>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
+        <Input
           value={text}
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
-          placeholder="useless placeholder"
-          keyboardType="numeric"
+          onChangeText={onChangeText}
+          style={{}}
+          label="Username"
+          icon={<Text>SSS</Text>}
+          iconPosition="right"
         />
       </SafeAreaView>
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
 
 export default Login;

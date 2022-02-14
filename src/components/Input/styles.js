@@ -8,12 +8,17 @@ export default StyleSheet.create({
   wrapper: {
     paddingHorizontal: 5,
     height: 42,
-    borderColor: colors.grey,
     borderWidth: 1,
     borderRadius: 4,
     alignItems: 'center',
+    marginTop: 5,
   },
   container: {
     paddingVertical: 12,
+  },
+  error: {
+    color: colors.danger,
+    paddingTop: 4,
+    fontSize: 12,
   },
 });

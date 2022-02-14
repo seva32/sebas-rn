@@ -1,27 +1,36 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import Container from '../../components/common/container';
 import Input from '../../components/Input';
 
 function Login(params) {
-  const [text, onChangeText] = React.useState('Useless Text');
+  const [username, onChangeUsername] = useState('');
+  const [password, onChangePassword] = useState('');
 
   useEffect(() => {
-    console.warn(text);
+    console.warn(username);
 
     return () => {};
-  }, [text]);
+  }, [username]);
 
   return (
     <Container>
       <SafeAreaView>
         <Input
-          value={text}
-          onChangeText={onChangeText}
+          value={username}
+          onChangeText={onChangeUsername}
           style={{}}
           label="Username"
-          icon={<Text>SSS</Text>}
+          // error={'Required field'}
+        />
+        <Input
+          value={password}
+          onChangeText={onChangePassword}
+          style={{}}
+          label="Password"
+          icon={<Text>??</Text>}
           iconPosition="right"
+          // error={'Required field'}
         />
       </SafeAreaView>
     </Container>

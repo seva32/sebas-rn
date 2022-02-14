@@ -7,14 +7,18 @@ export default StyleSheet.create({
     width: '100%',
   },
   wrapper: {
-    paddingHorizontal: 5,
     height: 42,
-    borderWidth: 1,
+    paddingHorizontal: 5,
+    marginVertical: 5,
     borderRadius: 4,
-    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   container: {
     paddingVertical: 12,
+  },
+  laoderSection: {
+    flexDirection: 'row-reverse',
   },
   error: {
     color: colors.danger,

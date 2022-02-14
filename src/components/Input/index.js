@@ -12,6 +12,7 @@ const Input = ({
   icon = null,
   iconPosition = '',
   error = null,
+  ...props
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -40,7 +41,11 @@ const Input = ({
       <View
         style={[
           styles.wrapper,
-          {borderColor: getBorderColor(), flexDirection: getFlexDirection()},
+          {
+            borderColor: getBorderColor(),
+            flexDirection: getFlexDirection(),
+            alignItems: `${icon ? 'center' : 'baseline'}`,
+          },
         ]}>
         <View>{icon && icon}</View>
         <TextInput
@@ -53,6 +58,7 @@ const Input = ({
           onBlur={() => setFocused(false)}
           // placeholder="useless placeholder"
           // keyboardType="numeric"
+          {...props}
         />
       </View>
       {error && <Text style={styles.error}>{error}</Text>}

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import Container from '../../components/common/container';
 import Input from '../../components/Input';
+import CustomButton from '../../components/CustomButton/index';
 
 function Login(params) {
   const [username, onChangeUsername] = useState('');
@@ -32,6 +33,7 @@ function Login(params) {
           iconPosition="right"
           // error={'Required field'}
         />
+        <CustomButton title="Submit" loading={true} disabled={true} secondary />
       </SafeAreaView>
     </Container>
   );

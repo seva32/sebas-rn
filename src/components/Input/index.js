@@ -1,9 +1,20 @@
+import React, {useState} from 'react';
 import {View, TextInput, Text} from 'react-native';
-import React from 'react';
+import colors from '../../assets/theme/colors';
 
 import styles from './styles';
 
-const Input = ({onChangeText, value, style, label, icon, iconPosition}) => {
+const Input = ({
+  onChangeText,
+  value,
+  style = {},
+  label = '',
+  icon = null,
+  iconPosition = '',
+  error = null,
+}) => {
+  const [focused, setFocused] = useState(false);
+
   const getFlexDirection = () => {
     if (icon && iconPosition) {
       if (iconPosition === 'left') {
@@ -13,19 +24,38 @@ const Input = ({onChangeText, value, style, label, icon, iconPosition}) => {
     }
   };
 
+  const getBorderColor = () => {
+    if (focused) {
+      return colors.primary;
+    }
+    if (error) {
+      return colors.danger;
+    }
+    return colors.grey;
+  };
+
   return (
     <View style={styles.container}>
       {label && <Text>{label}</Text>}
-      <View style={[styles.wrapper, {flexDirection: getFlexDirection()}]}>
+      <View
+        style={[
+          styles.wrapper,
+          {borderColor: getBorderColor(), flexDirection: getFlexDirection()},
+        ]}>
         <View>{icon && icon}</View>
         <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
           style={[styles.input, style]}
           onChangeText={onChangeText}
           value={value}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           // placeholder="useless placeholder"
           // keyboardType="numeric"
         />
       </View>
+      {error && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 };

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
-import colors from '../../assets/theme/colors';
+import colors from '../../../assets/theme/colors';
 
 import styles from './styles';
 

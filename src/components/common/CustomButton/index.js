@@ -35,6 +35,7 @@ const CustomButton = ({
     <TouchableOpacity
       style={[styles.wrapper, {backgroundColor: getBgColor()}]}
       disabled={disabled}
+      onPress={onPress}
       {...props}>
       <View style={styles.laoderSection}>
         {loading && (

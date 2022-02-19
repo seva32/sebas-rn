@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
 import {Text, SafeAreaView, Image, View, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import Container from '../common/container';
 import Input from '../common/Input';
@@ -43,10 +43,10 @@ const Login = () => {
             />
             {/* <CustomButton title="Submit" loading={true} disabled={true} primary /> */}
             <CustomButton title="Submit" primary />
-            <View>
-              <Text>Need a new account?</Text>
+            <View style={styles.createSection}>
+              <Text style={styles.infoText}>Need a new account?</Text>
               <TouchableOpacity onPress={() => navigate(REGISTER)}>
-                <Text>Register</Text>
+                <Text style={styles.linkText}>Register</Text>
               </TouchableOpacity>
             </View>
           </View>

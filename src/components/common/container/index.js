@@ -7,7 +7,7 @@ import styles from './styles';
  */
 const Container = ({style, children}) => {
   return (
-    <ScrollView>
+    <ScrollView contentInsetAdjustmentBehavior="automatic">
       <View style={styles.wrapper}>{children}</View>
     </ScrollView>
   );

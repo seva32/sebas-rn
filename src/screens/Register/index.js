@@ -9,9 +9,10 @@ function RegisterScreen(params) {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    axios.get('/users').catch(err => {
-      console.error(err.response);
-    });
+    console.log('out');
+    // axios.get('/users').catch(err => {
+    //   console.error(err);
+    // });
   }, []);
 
   const onChange = ({name, value}) => {

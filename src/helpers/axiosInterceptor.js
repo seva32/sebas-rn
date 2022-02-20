@@ -12,9 +12,14 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async config => {
-    const token = await AsyncStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    try {
+      const token = await AsyncStorage.getItem('token');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    } catch (err) {
+      console.log('wtf 1');
+      console.error(err);
     }
     return config;
   },

@@ -1,11 +1,11 @@
 import {DEV_URL, PROD_URL} from '@env';
 
 const devEnvVariables = {
-  DEV_URL,
+  SERVER_URL: DEV_URL,
 };
 
 const prodEnvVariables = {
-  PROD_URL,
+  SERVER_URL: PROD_URL,
 };
 
 export default __DEV__ ? devEnvVariables : prodEnvVariables;
